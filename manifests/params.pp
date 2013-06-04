@@ -36,8 +36,8 @@ class tomcat::params {
     if $tomcat_version { notify {"\$tomcat_version is not useful when using distribution package!":} }
     $maj_version = $::osfamily ? {
       'Debian' => $::lsbdistcodename ? {
-        /lenny|squeeze/ => '6',
-        'precise'         => '6',
+        /lenny|squeeze/   => '6',
+        /precise|raring/  => '6',
       },
       'RedHat' => $::operatingsystemrelease ? {
         /^5.*/ => "5.5",
